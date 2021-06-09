@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Anima
 import { Video } from 'expo-av';
 import { StatusBar } from 'expo-status-bar';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import { PacmanIndicator } from 'react-native-indicators'
 
 //styles:
 import styles from './MainScreenStyle'
@@ -10,6 +11,7 @@ import { vh, vw } from 'react-native-expo-viewport-units';
 
 
 const MainScreen = ({ route, navigation }) => {
+    const [showLoading, setShowLoading] = useState(false)
     const [showMen, setShowMen] = useState(true)
     const [camera, setCamera] = useState(1)
     const video = React.useRef(null);
@@ -49,9 +51,15 @@ const MainScreen = ({ route, navigation }) => {
         menu.hide();
     };
     const showMenu = () => {
+        clearTimeout(timer.current)
         if (showMen)
             menu.show();
     };
+    const changeCamera = (num) => {
+        timer.current = setTimeout(closeMen, 5000);
+        setCamera(num);
+        hideMenu();
+    }
     return (
         <TouchableWithoutFeedback onPress={() => { setShowMen(prev => !prev) }}>
             <View style={{ alignItems: "center" }}>
@@ -64,13 +72,13 @@ const MainScreen = ({ route, navigation }) => {
                             >Camera {camera}</Text><Image source={require('../../assets/arrow4.png')} style={{ width: vh(8), height: vh(9), zIndex: 10, position: "absolute", left: vw(18) }} /></View>}
                             style={{ marginTop: vh(9), marginLeft: vh(-2) }}
                         >
-                            <MenuItem onPress={() => { setCamera(1); hideMenu() }}>Camera 1</MenuItem>
+                            <MenuItem onPress={() => { changeCamera(1) }}>Camera 1</MenuItem>
                             <MenuDivider />
-                            <MenuItem onPress={() => { setCamera(2); hideMenu() }}>Camera 2</MenuItem>
+                            <MenuItem onPress={() => { changeCamera(2) }}>Camera 2</MenuItem>
                             <MenuDivider />
-                            <MenuItem onPress={() => { setCamera(3); hideMenu() }}>Camera 3</MenuItem>
+                            <MenuItem onPress={() => { changeCamera(3) }}>Camera 3</MenuItem>
                             <MenuDivider />
-                            <MenuItem onPress={() => { setCamera(4); hideMenu() }}>Camera 4</MenuItem>
+                            <MenuItem onPress={() => { changeCamera(4) }}>Camera 4</MenuItem>
                         </Menu>
                     </View>
                     <View style={{ alignSelf: "flex-end", marginRight: vw(2.5), marginTop: vw(3) }}>
@@ -83,6 +91,8 @@ const MainScreen = ({ route, navigation }) => {
                     </View>
                 </Animated.View>
                 {camera === 1 && <Video
+                    onLoad={() => setShowLoading(false)}
+                    onLoadStart={() => setShowLoading(true)}
                     ref={video}
                     style={styles.video}
                     source={require('../../assets/Movie1.mp4')}
@@ -92,6 +102,8 @@ const MainScreen = ({ route, navigation }) => {
                     onPlaybackStatusUpdate={status => setStatus(() => { return { shouldPlay: true } })}
                 />}
                 {camera === 2 && <Video
+                    onLoad={() => setShowLoading(false)}
+                    onLoadStart={() => setShowLoading(true)}
                     ref={video}
                     style={styles.video}
                     source={require('../../assets/Movie2.mp4')}
@@ -101,6 +113,8 @@ const MainScreen = ({ route, navigation }) => {
                     onPlaybackStatusUpdate={status => setStatus(() => { return { shouldPlay: true } })}
                 />}
                 {camera === 3 && <Video
+                    onLoad={() => setShowLoading(false)}
+                    onLoadStart={() => setShowLoading(true)}
                     ref={video}
                     style={styles.video}
                     source={require('../../assets/Movie3.mp4')}
@@ -110,6 +124,8 @@ const MainScreen = ({ route, navigation }) => {
                     onPlaybackStatusUpdate={status => setStatus(() => { return { shouldPlay: true } })}
                 />}
                 {camera === 4 && <Video
+                    onLoad={() => setShowLoading(false)}
+                    onLoadStart={() => setShowLoading(true)}
                     ref={video}
                     style={styles.video}
                     source={require('../../assets/Movie4.mp4')}
@@ -118,6 +134,7 @@ const MainScreen = ({ route, navigation }) => {
                     shouldPlay={true}
                     onPlaybackStatusUpdate={status => setStatus(() => { return { shouldPlay: true } })}
                 />}
+                {showLoading && <PacmanIndicator style={{ position: 'absolute', left: vw(47), height: vh(95) }} color="white" />}
             </View>
         </TouchableWithoutFeedback>
 
