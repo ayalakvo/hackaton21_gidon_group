@@ -10,14 +10,14 @@ const styles = StyleSheet.create({
     },
     image: {
         marginBottom: vh(5),
-        width: vw(65),
-        height: vw(40),
+        width: vw(20),
+        height: vw(10),
     },
     inputView: {
         backgroundColor: "#afdee1",
         borderRadius: vw(20),
-        width: "70%",
-        height: vh(7),
+        width: vw(40),
+        height: vh(10),
         marginBottom: vh(3),
         alignItems: "center",
         justifyContent: "center"
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
         height: "90%",
     },
     forgot_button: {
-        height: vh(5),
+        height: vh(10),
     },
     loginBtn: {
-        width: "80%",
+        width: vw(40),
         borderRadius: vw(20),
-        height: vh(8),
+        height: vh(10),
         alignItems: "center",
         justifyContent: "center",
         marginTop: vh(5),
