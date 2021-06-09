@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
     },
     image: {
         marginBottom: vh(5),
-        width: vw(65),
-        height: vw(40),
+        width: vw(30),
+        height: vw(20),
     },
     inputView: {
         backgroundColor: "#afdee1",
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         height: vh(5),
     },
     loginBtn: {
-        width: "80%",
+        width: "70%",
         borderRadius: vw(20),
         height: vh(8),
         alignItems: "center",
