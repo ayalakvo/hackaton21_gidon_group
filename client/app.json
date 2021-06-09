@@ -5,9 +5,9 @@
     "androidNavigationBar": { "visible": "sticky-immersive"},
     "version": "1.0.0",
     "orientation": "landscape",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/sports.jpg",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/sports.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
