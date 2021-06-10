@@ -32,12 +32,12 @@ const MainScreen = ({ route, navigation }) => {
             }).start()
         } else {
             hideMenu()
-            clearTimeout(timer.current)
             Animated.timing(opacityAnim, {
                 toValue: 0,
                 duration: 1000,
                 useNativeDriver: true
             }).start()
+            clearTimeout(timer.current)
         }
         return () => {
             opacityAnim.stopAnimation()
@@ -60,7 +60,7 @@ const MainScreen = ({ route, navigation }) => {
         (async () => {
             let n = await video.current.getStatusAsync()
             timer.current = setTimeout(closeMen, 5000);
-            setCamera({ num: num, time: n.positionMillis });
+            setCamera({ num: num,  time: n.positionMillis });
         })();
     }
     return (
