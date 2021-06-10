@@ -23,7 +23,7 @@ const Login = ({ route, navigation }) => {
                     <TextInput
                         style={styles.TextInput}
                         placeholder="Email"
-                        placeholderTextColor="#003f5c"
+                        placeholderTextColor="#fff"
                         onChangeText={(email) => setEmail(email)}
                     />
                 </View>
@@ -32,7 +32,7 @@ const Login = ({ route, navigation }) => {
                     <TextInput
                         style={styles.TextInput}
                         placeholder="Password"
-                        placeholderTextColor="#003f5c"
+                        placeholderTextColor="#fff"
                         secureTextEntry={true}
                         onChangeText={(password) => setPassword(password)}
                     />
@@ -43,7 +43,7 @@ const Login = ({ route, navigation }) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
-                    <Text style={styles.loginText}>LOGIN</Text>
+                    <Text style={{ color: "white" }}>LOGIN</Text>
                 </TouchableOpacity>
             </View>
         </TouchableWithoutFeedback>

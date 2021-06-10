@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
     },
     image: {
         marginBottom: vh(5),
-        width: vw(20),
-        height: vw(10),
+        width: vw(28),
+        height: vw(12),
     },
     inputView: {
-        backgroundColor: "#afdee1",
+        backgroundColor: "#9e9c9c",
         borderRadius: vw(20),
         width: vw(40),
         height: vh(10),
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: vh(5),
-        backgroundColor: "#84cbb4",
+        backgroundColor: "#444343",
     },
 });
 
