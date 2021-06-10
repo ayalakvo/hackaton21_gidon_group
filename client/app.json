@@ -2,6 +2,7 @@
   "expo": {
     "name": "client",
     "slug": "client",
+    "androidNavigationBar": { "visible": "sticky-immersive"},
     "version": "1.0.0",
     "orientation": "landscape",
     "icon": "./assets/sports.jpg",
