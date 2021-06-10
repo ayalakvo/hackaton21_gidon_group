@@ -14,8 +14,12 @@ export class UserService {
         return this.usersRepository.find();
     }
 
-    findOne(id: string): Promise<User> {
-        return this.usersRepository.findOne(id);
+    findOne(password: string, firstName: string): boolean {
+        const res = this.usersRepository.findOne({ password, firstName});
+        if (res) {
+            return true
+        }
+        else return false 
     }
 
     async remove(id: string): Promise<void> {
